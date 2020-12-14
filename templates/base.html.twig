@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Symfony-{% block title %}Mon site{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css">
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="{{ path('home') }}">Symfony</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('posts.index') }}">Liste des articles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('categories.index') }}">Liste des catégories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('posts.create') }}">Nouvel article</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('test') }}">Page de test</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        
+        <main class="container">
+            {% block content %}{% endblock %}
+        </main>
+        
+        {% block js %}{% endblock %}
+    </body>
+</html>

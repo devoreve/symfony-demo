@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Test{% endblock %}
+
+{% block content %}
+
+    <h1>Page de test du site</h1>
+    
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt suscipit quisquam eos maxime facere perspiciatis nobis quas sint quibusdam ab! Explicabo, quis, a deserunt doloribus quasi asperiores nam recusandae id.</p>
+    <p>A, amet, autem, aperiam, voluptas esse possimus nulla praesentium odio distinctio architecto nihil consequuntur velit nisi expedita commodi necessitatibus fuga harum perspiciatis officia culpa quas sapiente maiores tenetur hic veritatis?</p>
+    <p>Accusantium, eveniet, officiis, aut, delectus suscipit placeat dignissimos cupiditate animi harum odit soluta rerum aperiam cum adipisci doloremque voluptatem labore sed iusto architecto doloribus error debitis distinctio ad beatae laudantium!</p>
+    
+    <p>{{ toto }}</p>
+    
+    {% for day in days %}
+        <li>{{ day }}</li>
+    {% endfor %}
+    
+    {# Equivalent du var_dump un peu modifié #}
+    {{ dump(user) }}
+    
+    <section>
+        <dl>
+            <dt>Prénom</dt>
+            <dd>{{ user.firstname }}</dd>
+            <dt>Nom</dt>
+            <dd>{{ user.lastname | upper }}</dd>
+            <dt>Date de naissance</dt>
+            <dd>{{ user.birthdate | date("d/m/Y") }}</dd>
+            <dt>Amis</dt>
+            <dd>
+                <ul class="list-unstyled">
+                    {% for friend in user.friends %}
+                        <li>{{ friend.firstname }} {{ friend.lastname }}</li>
+                    {% endfor %}
+                </ul>
+            </dd>
+        </dl>
+    </section>
+    
+    {#Equivalent php natif#}
+    {#<?php foreach ($user['friends'] as $friend): ?>#}
+    {#    <li><?= $friend['firstname'] ?> <?= $friend['lastname'] ?></li>#}
+    {#<?php endforeach ?>#}
+    
+    {% for i in 0..10 %}
+         <p>{{ i }}</p>
+    {% endfor %}
+    
+    {#<?php foreach ($days as $day): ?>#}
+    {#    <li><?= $day ?></li>#}
+    {#<?php endforeach ?>#}
+    
+{% endblock %}

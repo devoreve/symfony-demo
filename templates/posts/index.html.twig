@@ -1,0 +1,23 @@
+{# On inclut le layout #} 
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des articles du blog{% endblock %}
+
+{% block content %}
+
+    <h1>Liste des articles du blog</h1>
+    
+    <ul>
+        {% for post in posts %}
+            <article>
+                <header>
+                    <h2><a href="{{ path('posts.show', {id: post.id}) }}">{{ post.title }}</a></h2>
+                    <small>{{ post.createdAt | date('d/m/Y') }}</small>
+                    <p>Catégorie : {{ post.category.title }}</p>
+                </header>
+                {{ post.content }}
+            </article>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

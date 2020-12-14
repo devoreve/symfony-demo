@@ -1,0 +1,22 @@
+{# On inclut le layout #} 
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un nouvel article{% endblock %}
+
+{% block content %}
+
+    <h1>Création d'un nouvel article</h1>
+    
+    <form method="post" action="{{ path('posts.store') }}">
+        <div class="form-group">
+            <label for="title">Titre</label>
+            <input class="form-control" id="title" name="title">
+        </div>
+        <div class="form-group">
+            <label for="content">Contenu</label>
+            <textarea class="form-control" id="content" name="content"></textarea>
+        </div>
+        <button class="btn btn-primary">Ajouter</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+# index:                                                    Le nom de la route
+#     path: /                                               L'url correspondant à la route (ce qu'il y a derrière)
+#     controller: App\Controller\DefaultController::index   L'action correspondant à la route
+
+home:
+    path: /
+    controller: App\Controller\DefaultController::index
+    
+test:
+    path: /test
+    controller: App\Controller\DefaultController::test
+
+# Affichage de tous les articles
+posts.index:
+    path: /blog/posts
+    controller: App\Controller\PostController::index
+    methods: GET|HEAD
+
+# Enregistrement d'un article en base de données
+posts.store:
+    path: /blog/posts
+    controller: App\Controller\PostController::store
+    methods: POST
+    
+posts.show:
+    path: /blog/posts/{id}
+    controller: App\Controller\PostController::show
+    requirements: 
+        id: '\d+'
+    
+categories.index:
+    path: /blog/categories
+    controller: App\Controller\CategoryController::index
+    
+categories.posts.index:
+    path: /blog/categories/{id}/posts
+    controller: App\Controller\CategoryController::posts
+    
+posts.create:
+    path: /blog/posts/create
+    controller: App\Controller\PostController::create
+    
